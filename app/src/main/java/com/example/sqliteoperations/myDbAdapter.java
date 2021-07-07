@@ -21,6 +21,7 @@ public class myDbAdapter {
         contentValues.put(myDbHelper.NAME, name);
         contentValues.put(myDbHelper.MyPASSWORD, pass);
         long id = dbb.insert(myDbHelper.TABLE_NAME, null , contentValues);
+        dbb.close();
         return id;
     }
 
@@ -53,6 +54,13 @@ public class myDbAdapter {
         return  count;
     }
 
+    public void deleteDataBase(){
+        SQLiteDatabase db = myhelper.getWritableDatabase();
+        String clearDBQuery = "DELETE FROM "+"myTable";
+        db.execSQL(clearDBQuery);
+        db.close();
+    }
+
     public int updateName(String oldName , String newName)
     {
         SQLiteDatabase db = myhelper.getWritableDatabase();
@@ -60,6 +68,7 @@ public class myDbAdapter {
         contentValues.put(myDbHelper.NAME,newName);
         String[] whereArgs= {oldName};
         int count =db.update(myDbHelper.TABLE_NAME,contentValues, myDbHelper.NAME+" = ?",whereArgs );
+        db.close();
         return count;
     }
 

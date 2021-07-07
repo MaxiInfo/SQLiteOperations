@@ -109,4 +109,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public void deleteDataBase( View view){
+        helper.deleteDataBase();
+        Message.message(this,"Base de datos Eliminada");
+    }
 }
