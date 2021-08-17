@@ -14,11 +14,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Name= (EditText) findViewById(R.id.editName);
-        Pass= (EditText) findViewById(R.id.editPass);
-        updateold= (EditText) findViewById(R.id.editText3);
-        updatenew= (EditText) findViewById(R.id.editText5);
-        delete = (EditText) findViewById(R.id.editText6);
+        Name= findViewById(R.id.editName);
+        Pass= findViewById(R.id.editPass);
+        updateold= findViewById(R.id.editText3);
+        updatenew= findViewById(R.id.editText5);
+        delete = findViewById(R.id.editText6);
 
         helper = new myDbAdapter(this);
 
@@ -38,14 +38,12 @@ public class MainActivity extends AppCompatActivity {
             if(id<=0)
             {
                 Message.message(getApplicationContext(),"Insertion Unsuccessful");
-                Name.setText("");
-                Pass.setText("");
             } else
             {
                 Message.message(getApplicationContext(),"Insertion Successful");
-                Name.setText("");
-                Pass.setText("");
             }
+            Name.setText("");
+            Pass.setText("");
         }
     }
 
@@ -101,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private void nextButton(){
-        Button next = (Button) findViewById(R.id.goActData);
+        Button next = findViewById(R.id.goActData);
         next.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
